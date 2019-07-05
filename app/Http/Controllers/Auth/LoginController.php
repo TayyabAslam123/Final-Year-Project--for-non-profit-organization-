@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -27,10 +28,22 @@ class LoginController extends Controller
      */
 
     
-    protected $redirectTo = '/';
+  //  protected $redirectTo = '/';
 
-
-
+  Public function authenticated()
+  {
+      if(auth()->user()->role=='ngo')
+      {
+          return redirect('/org');
+      } 
+  
+      if(auth()->user()->role=='admin')
+      {
+          return redirect('/');
+      } 
+      
+      return redirect('/site');
+  }
 
 /* protected function authenticated(Request $request, $user)
     {

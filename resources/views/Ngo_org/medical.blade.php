@@ -28,7 +28,7 @@
         <button type="button" class="btn btn-primary btn-block">CREATE A MEDICAL CAMP</button>
         </a>
         <br><br>
-        <a href="{{ url('/camps') }}">
+        <a href="{{ url('/allcamps') }}">
         <button type="button" class="btn btn-primary btn-block">VIEW ALL MEDICAL CAMPS</button>
         </a>
        

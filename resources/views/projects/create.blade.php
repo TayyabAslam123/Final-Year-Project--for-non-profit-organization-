@@ -24,8 +24,8 @@
         <label for="exampleInputEmail1">STATUS</label>
     <select class="custom-select my-1 mr-sm-2" name="status">
         <option selected>Choose...</option>
-        <option value="LAHORE">COMPLETED</option>
-        <option value="2KARACHI">PENDING</option>
+        <option value="completed">COMPLETED</option>
+        <option value="pending">PENDING</option>
     
       </select>   
     </div>

@@ -71,7 +71,13 @@
                                                document.getElementById('logout-form').submit();">
                                   {{ __('Logout') }}
                               </a>
+
+
+                              <a class="dropdown-item" href="{{ url('/myprofile') }}">
+                              Profile
+                            </a>
   
+
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                   @csrf
                               </form>

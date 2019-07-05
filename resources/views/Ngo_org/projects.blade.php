@@ -16,13 +16,13 @@
 
 <div class="container">
     <br><br>
-<a href="http://localhost:8080/AdminPanel/public/ngo">
+<a href="{{ url('projects/create') }}">
         <button type="button" class="btn btn-primary btn-block">CREATE A NEW PROJECT</button>
     </a>
         <br>
         <br>
         
-        <a href="{{ url('ngo/create') }}">
+        <a >
         <button type="button" class="btn btn-primary btn-block">VIEW ALL PROJECTS</button>
         </a>
        

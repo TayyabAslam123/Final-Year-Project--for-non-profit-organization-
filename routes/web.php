@@ -35,6 +35,8 @@ Route::resource('projects','ProjectsController');
 Route::resource('goodwork','GoodworkController');
 Route::resource('donations','DonationsController');
 Route::resource('msg','MsgController');
+Route::resource('myprofile','BackerController');
+
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
 
@@ -100,7 +102,7 @@ Route::get('don', 'FunctionController@show');
 //_____________________________________________________________________________________//
 ///>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-
+Route::group(['middleware' => 'auth'], function () {
 ////NAGO PANEL <start>
 ///ngo main page
 Route::get('/org', function () {
@@ -128,4 +130,17 @@ Route::get('/proj', function () {
 
 Route::get('/profiles', 'NgoController@profiles');
 ///
-Route::get('/camps', 'MedicalcampoController@camps');
+Route::get('/allcamps', 'MedicalcampoController@camps');
+
+Route::get('/allprojects', 'ProjectsController@projects');
+
+
+
+});
+
+//////NGO PANEL <END>
+
+
+//Route::get('/my', function () {
+  // return 'lo';
+//});

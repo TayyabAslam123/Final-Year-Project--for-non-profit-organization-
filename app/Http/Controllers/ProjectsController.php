@@ -15,6 +15,14 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+
+    public function projects()
+    {
+    
+        $pos=projects::all();
+        return view('Ngo_org.all_projects')->with('pos',$pos);  
+        }
+
     public function showing()
     {
     
@@ -36,8 +44,15 @@ class ProjectsController extends Controller
 
     public function index()
     {
-        $pos= DB::select('select * from projects');
-        return view('projects.projects')->with('pos',$pos);  
+       // $pos= DB::select('select * from projects');
+       // return view('projects.projects')->with('pos',$pos);
+       
+       $pos= DB::select('select * from projects');
+     return view('Ngo_org.all_projects')->with('pos',$pos);
+       
+       
+       
+
     }
 
     /**
