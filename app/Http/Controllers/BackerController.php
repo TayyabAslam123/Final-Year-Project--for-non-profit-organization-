@@ -15,7 +15,11 @@ class BackerController extends Controller
      */
     public function index()
     {
-        return view('Backer.index');
+        
+       $pos=Backer::where('user_id',auth()->user()->id)->first();
+
+   // return $pos;
+        return view('Backer.index')->with('pos',$pos);
     }
 
     /**
@@ -36,7 +40,15 @@ class BackerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post= new Backer;
+        $post->name =$request->input('name');
+        $post->address =$request->input('address');
+        $post->ph=$request->input('ph');
+        $post->cnic=$request->input('cnic');
+        $post->user_id=auth()->user()->id;
+       
+        $post->save();
+    
     }
 
     /**
