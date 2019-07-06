@@ -40,7 +40,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="http://localhost:8080/AdminPanel/public/site" class="nav-link">Home</a></li>
           <li class="nav-item active"><a href="user/about.html" class="nav-link">About</a></li>
-          <li class="nav-item active"><a href="http://localhost:8080/AdminPanel/public/campaign" class="nav-link">Campaign</a></li>
+          <li class="nav-item active"><a href="{{url('campaign')}}" class="nav-link">Campaign</a></li>
           <li class="nav-item active"><a href="http://localhost:8080/AdminPanel/public/ngo" class="nav-link">Ngos</a></li>
           <li class="nav-item active"><a href="user/blog.html" class="nav-link">Projects</a></li>
          
@@ -104,6 +104,7 @@
 
 
     <!--MAIN CONTENT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    @include('layouts.message')
     @yield('content')
 
     <!--END MAIN CONTENT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->

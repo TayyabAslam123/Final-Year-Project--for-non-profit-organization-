@@ -33,7 +33,7 @@
       			<div class="cause-entry">
     					<a href="#" class="img" style="background-image: url('storage/cover_images/{{$pos->cover_image}}');"></a>
     					<div class="text p-3 p-md-4">
-               <a href="http://localhost/AdminPanel/public/donation/{{$pos->id}}"> <p>link</p></a>
+            
     						<h3><a href="http://localhost/AdminPanel/public/campaign/{{$pos->id}}">{{$pos->title}}</a></h3>
     						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
     						<span class="donation-time mb-3 d-block">Last donation 1w ago</span>
@@ -42,7 +42,7 @@
                 </div>
                 <span class="fund-raised d-block">RS {{$pos->amount_raised}} raised of {{$pos->amount_req}}</span>
             
-               <a href="http://localhost/AdminPanel/public/donations/{{$pos->id}}">
+               <a href="http://localhost:8080/AdminPanel/public/donations/{{$pos->id}}"">
                 <button>
                   DONATE NOW </button>
                </a>

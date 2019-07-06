@@ -19,8 +19,34 @@
               <h2>CNIC:{{$pos->cnic}}</h2>
               <h2>ADDRESS:{{$pos->address}}</h2>
             
+              
+              <a href="http://localhost/AdminPanel/public/campaign/{{$pos->id}}/edit">
+                  <button class="btn btn-primary ">
+                  EDIT Profile
+                  </button>
+                  </a>                
+              
+                  <br>
+                  <br>
+              
+                  {!!Form::open(['action'=>['BackerController@destroy',$pos->id],'method'=>'post'])!!}
+              
+                  {{Form::hidden('_method','DELETE')}}
+                  
+                  <button class="btn btn-danger">
+                         DELETE Profile
+                          </button>
+                  {!!Form::close()!!}
+              
               @else
-              <p>NO DATA</p>
+              <h2>You have not made your profile yet</h2>
+
+          <a href="{{url('myprofile/create')}}">
+
+              <button class="btn btn-primary ">
+                    MAKE PROFILE
+                     </button>
+              </a>
 
 
               @endif

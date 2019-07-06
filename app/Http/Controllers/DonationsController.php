@@ -62,7 +62,7 @@ class DonationsController extends Controller
         //$campaignss = DB::table('campaigns')->where('campaign_id', '=', $donation->campaign_id)->get();
 
 
-        return redirect('/')->with('success','donation successful');
+        return redirect('/campaign')->with('success','donation successful');
     }
 
     /**

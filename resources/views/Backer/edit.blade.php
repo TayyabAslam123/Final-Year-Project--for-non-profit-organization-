@@ -24,32 +24,14 @@
 
     </div>
     <div class="col-md-8">
-        {!! Form::open(['method'=>'post','files' => true,'action' => 'BackerController@store']) !!}
+            {!! Form::open(['action' => ['BackerController@update',$pos->id],'method'=>'post']) !!}
+        
 
-        <div class="form-group">
-     
-          <input type="text" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter Your Name">
-        </div>
-        
-        
-        <div class="form-group">
-    
-            <input type="text" class="form-control" name="ph" aria-describedby="emailHelp" placeholder="Enter Your Phone NO">
-          </div>
-          <div class="form-group">
-         
-            <input type="text" class="form-control" name="cnic" aria-describedby="emailHelp" placeholder="Enter Your Cnic">
-          </div>
-       
-        
-        <div class="form-group">
-        
-          <textarea class="form-control" rows="4" name="address"  placeholder="Enter Address"></textarea>
-         </div>
-        
-        <br>
-        <br>
-        
+            
+{{Form::label('title','TITLE')}}
+{{Form::text('title',$pos->name,['class'=>'form-control'])}}
+
+
         <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
         
         

@@ -13,6 +13,12 @@ class BackerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         
@@ -48,6 +54,8 @@ class BackerController extends Controller
         $post->user_id=auth()->user()->id;
        
         $post->save();
+
+        return redirect('/myprofile')->with('success','You have successfully made your profile.Thank you!');
     
     }
 
@@ -70,7 +78,8 @@ class BackerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pos=Backer::find($id);
+        return view('Backer.edit')->with('pos',$pos); 
     }
 
     /**
@@ -93,6 +102,8 @@ class BackerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post=Backer::find($id);
+        $post->delete();
+        return redirect('/myprofile')->with('success','You have deleted your profile');
     }
 }
