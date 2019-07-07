@@ -133,7 +133,7 @@ class NgoController extends Controller
         $post->save();
 
           //////redirect to posts
-   return redirect('/ngo')->with('success','New ngo created');
+   return redirect('/profiles')->with('success','New ngo created');
     
     }
 
@@ -145,11 +145,20 @@ class NgoController extends Controller
      */
     public function show($id)
     {
-       // $post=ngo::find($id);
-      //return view('ngo.show')->with('post',$post);
+        $post=ngo::find($id);
+     // return view('ngo.show')->with('post',$post);
 
-     $post=ngo::find($id);
-    return view('Ngo_org.show_profile')->with('post',$post);
+     if(auth()->user()->role=="ngo"){
+       
+        return view('Ngo_org.show_profile')->with('post',$post);
+     }
+
+
+  if(auth()->user()->role=="admin"){
+       
+    return view('ngo.show')->with('post',$post);
+     }
+   
 
       
     }

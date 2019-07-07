@@ -7,8 +7,14 @@
 {!! Form::open(['action' => ['NgoController@update',$post->id],'method'=>'post']) !!}
  
 {{Form::label('name','NAME')}}
-{{Form::text('name',$post->name,['class'=>'form-control'])}}
+{{Form::text('name',$post->ph,['class'=>'form-control'])}}
+<br>
 
+{{Form::label('name','NAME')}}
+{{Form::text('name',$post->address,['class'=>'form-control'])}}
+<br>
+{{Form::label('name','NAME')}}
+{{Form::text('name',$post->name,['class'=>'form-control'])}}
 
 <br>
 {{Form::label('details','DETAILS')}}
@@ -16,7 +22,7 @@
 
 <bR>
     <div class="form-group">
-        <label for="exampleInputEmail1">APPROVE THE NGO</label>
+        <h2>APPROVE THE NGO</h2>
     <select class="custom-select my-1 mr-sm-2" name="status">
         <option selected>Choose...</option>
         <option value="not approve">NOT APPROVED</option>

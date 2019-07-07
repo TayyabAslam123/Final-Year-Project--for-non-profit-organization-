@@ -37,6 +37,8 @@ Route::resource('donations','DonationsController');
 Route::resource('msg','MsgController');
 Route::resource('myprofile','BackerController');
 
+Route::resource('User','UserController');
+
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
 
@@ -136,11 +138,10 @@ Route::get('/allprojects', 'ProjectsController@projects');
 
 
 
+
+
 });
 
 //////NGO PANEL <END>
 
-
-//Route::get('/my', function () {
-  // return 'lo';
-//});
+Route::get('/alluser', 'UserController@in');

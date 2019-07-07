@@ -16,15 +16,18 @@
 
 <div class="container">
     <br><br>
+    @if($pos!==NULL)
 <a href="http://localhost:8080/AdminPanel/public/ngo/{{$pos->id}}">
         <button type="button" class="btn btn-primary btn-block">VIEW PROFILE</button>
     </a>
+    @endif
         <br>
         <br>
-        
+        @if($pos==NULL)
         <a href="{{ url('ngo/create') }}">
         <button type="button" class="btn btn-primary btn-block">MAKE PROFILE</button>
         </a>
+        @endif
        
 </div>
 

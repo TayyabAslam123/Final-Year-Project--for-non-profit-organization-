@@ -22,7 +22,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
+   
     /**
      * Where to redirect users after registration.
      *
@@ -30,6 +30,24 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/home';
 
+/*
+    Public function redirection()
+    {
+        if(auth()->user()->role=='ngo')
+        {
+            return redirect('/org');
+        } 
+    
+        if(auth()->user()->role=='admin')
+        {
+            return redirect('/');
+        } 
+        
+        return redirect('/site');
+    }
+
+
+    */
     /**
      * Create a new controller instance.
      *

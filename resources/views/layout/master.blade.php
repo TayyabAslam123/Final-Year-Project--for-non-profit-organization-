@@ -41,7 +41,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="http://localhost/AdminPanel/public/">
+        <a class="nav-link" href="{{ url('/') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -63,9 +63,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Campaigns:</h6>
-            <a class="collapse-item" href="http://localhost:8080/AdminPanel/public/campaign/create">ADD A CAMPAIGN</a>
-            <a class="collapse-item" href="http://localhost:8080/AdminPanel/public/show_campaign">VIEW ALL</a>
-            <a class="collapse-item" href="http://localhost:8080/AdminPanel/public/campaign_verification">VERIFY CAMPAIGN</a>
+            <a class="collapse-item" href="{{ url('/campaign/create') }}">ADD A CAMPAIGN</a>
+            <a class="collapse-item" href="{{ url('/show_campaign') }}" >VIEW ALL</a>
+            <a class="collapse-item" href="{{ url('/campaign_verification') }}" >VERIFY CAMPAIGN</a>
 
           </div>
         </div>
@@ -83,7 +83,6 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Ngo:</h6>
-            <a class="collapse-item" href="http://localhost:8080/AdminPanel/public/ngo/create">ADD A NGO</a>
            <a class="collapse-item" href="http://localhost:8080/AdminPanel/public/show_ngo">VIEW ALL</a>
            <a class="collapse-item" href="http://localhost:8080/AdminPanel/public/ngo_verification">VERIFY NGO</a>
           
@@ -180,11 +179,7 @@
 
 
  <!-- Nav Item - Tables -->
- <li class="nav-item">
-  <a class="nav-link" href="tables.html">
-    <i class="fas fa-fw fa-arrow-right"></i>
-    <span>SUBSCRIBERS</span></a>
-</li>
+
 
 
       <!-- Divider -->

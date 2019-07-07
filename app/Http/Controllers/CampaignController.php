@@ -179,9 +179,16 @@ public function __construct()
     public function show($id)
     {
        $post=campaign::find($id);
-       //return view('campaign.show')->with('post',$post);   
-
-       return view('user_campaign.show')->with('post',$post); 
+       if(auth()->user()->role=="admin"){
+        return view('campaign.show')->with('post',$post);   
+       }
+       
+       
+       if(auth()->user()->role=="backer"){
+        return view('user_campaign.show')->with('post',$post); 
+       }
+       
+       
     }
 
     /**
@@ -216,7 +223,7 @@ public function __construct()
         $post->save();
      
 
-        return redirect('/show_campaign')->with('success','UPDATED');;
+        return redirect('/show_campaign')->with('success','CAMPAIGN IS VERIFIED SUCCESSFULLY');;
     }
 
     /**
@@ -229,7 +236,7 @@ public function __construct()
     {
         $post=campaign::find($id);
         $post->delete();
-        return redirect('/show_campaign')->with('success','DELETED');;
+        return redirect('/show_campaign')->with('success','YOU HAVE DELETED A CAMPAIGN');;
      
     }
 
