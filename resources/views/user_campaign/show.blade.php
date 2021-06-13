@@ -1,4 +1,4 @@
-@extends('layout.umm')
+@extends('layout.um')
 
 @section('content')
 
@@ -13,9 +13,9 @@
 
         <div class="row">
           <div class="col-lg-6" >
-              <img src="{{ url('storage/cover_images/'.$post->cover_image) }}" height="400PX" width="450px">
-              <h2>AMOUNT REQUIRED: {{$post->amount_req}}</h2>
-              <h2>AMOUNT RAISED:{{$post->amount_raised}}</h2>
+              <img src="{{ url('storage/cover_images/'.$post->cover_image) }}" height="500PX" width="650px">
+              <h2><b>AMOUNT REQUIRED:</b>RS  {{$post->amount_req}}</h2>
+              <h2><b>AMOUNT RAISED:</b>RS {{$post->amount_raised}}</h2>
           </div>
           <div class="col-lg-6">
               <h1>{{$post->title}}</h1>
@@ -46,7 +46,7 @@
 
         <hr>     
         @if(!Auth::guest())
-<a href="http://localhost/AdminPanel/public/campaign/{{$post->id}}/edit">
+<a href="{{url('/campaign/'.$post->id.'/edit')}}">
     <button class="btn btn-primary btn-lg btn-block">
     EDIT
     </button>

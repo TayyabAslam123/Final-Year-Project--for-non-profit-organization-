@@ -16,7 +16,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -30,13 +30,13 @@ class HomeController extends Controller
         //return view('layouts.home');
 
 
-        if (auth()->user()->role=='admin'){
-            return view('layouts.home');
-            }
+        // if (auth()->user()->role=='admin'){
+        //     return view('layouts.home');
+        //     }
          
-         else{
-            return view('layout.website');
-         }
+        //  else{
+        //     return view('layout.website');
+        //  }
     }
 
 

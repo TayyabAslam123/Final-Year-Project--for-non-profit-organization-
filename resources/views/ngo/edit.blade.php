@@ -7,14 +7,16 @@
 {!! Form::open(['action' => ['NgoController@update',$post->id],'method'=>'post']) !!}
  
 {{Form::label('name','NAME')}}
-{{Form::text('name',$post->ph,['class'=>'form-control'])}}
+{{Form::text('name',$post->name,['class'=>'form-control'])}}
+<br>
+{{Form::label('ph','Phone Number')}}
+{{Form::text('ph',$post->ph,['class'=>'form-control'])}}
 <br>
 
-{{Form::label('name','NAME')}}
-{{Form::text('name',$post->address,['class'=>'form-control'])}}
+{{Form::label('address','Address')}}
+{{Form::text('address',$post->address,['class'=>'form-control'])}}
 <br>
-{{Form::label('name','NAME')}}
-{{Form::text('name',$post->name,['class'=>'form-control'])}}
+
 
 <br>
 {{Form::label('details','DETAILS')}}

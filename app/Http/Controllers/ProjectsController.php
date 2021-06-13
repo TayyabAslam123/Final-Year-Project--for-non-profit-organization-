@@ -142,7 +142,7 @@ class ProjectsController extends Controller
     {
         $post=projects::find($id);
        $post->delete();
-       return redirect('http://localhost/AdminPanel/public/projects')->with('success','DELETED');;
+       return redirect('/projects')->with('success','DELETED');;
      
 
 

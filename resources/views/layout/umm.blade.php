@@ -40,7 +40,7 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="http://localhost:8080/AdminPanel/public/site" class="nav-link">Home</a></li>
+          <li class="nav-item active"><a href="{{url('/site')}}" class="nav-link">Home</a></li>
           <li class="nav-item active"><a href="user/about.html" class="nav-link">About</a></li>
           <li class="nav-item active"><a href="user/causes.html" class="nav-link">Campaign</a></li>
           <li class="nav-item active"><a href="user/donate.html" class="nav-link">Ngos</a></li>

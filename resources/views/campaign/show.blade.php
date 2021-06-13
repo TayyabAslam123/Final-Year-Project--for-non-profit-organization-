@@ -13,7 +13,10 @@
 
         <div class="row">
           <div class="col-lg-6" >
-              <img src="{{$post->img}}" height="400PX" width="450px">
+              <h5 id="dm">
+
+                </h5>
+              <img src="{{asset('storage/cover_images/'.$post->cover_image)}}" height="400PX" width="450px">
               <h2>AMOUNT REQUIRED: {{$post->amount_req}}</h2>
               <h2>AMOUNT RAISED:{{$post->amount_raised}}</h2>
           </div>
@@ -29,7 +32,7 @@
 
         <hr>     
         @if(!Auth::guest())
-<a href="http://localhost/AdminPanel/public/campaign/{{$post->id}}/edit">
+<a href="{{url('/campaign/'.$post->id.'/edit')}}">
     <button class="btn btn-primary btn-lg btn-block">
     EDIT
     </button>
@@ -68,6 +71,20 @@ data-layout="button_count" style="height:150px;width:300px">
 </div>
 
 </div>
+<!---->
+<script
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange=function(){
+      if(this.readyState==4&& this.status==200){
+        document.getElementById('dm').innerHTML=this.responseText;
+        console.log(this.responseText);
+      }
+  };
+
+
+xhttp.open("GET", 'http://127.0.0.1:8080/linear_regression/load.php?user_type=customer&location=lahore&category=medical&desc=450&product=yes&amt=10000', true);
+xhttp.send();
+</script>
 
 
 @endsection

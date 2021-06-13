@@ -43,7 +43,7 @@ class MsgController extends Controller
         $post->message =$request->input('msg');
 
         $post->save();
-       return redirect('http://localhost/AdminPanel/public/msg/create')->with('success','MESSAGE SENDED.THANKS FOR RESPONSE');
+       return redirect('/msg/create')->with('success','MESSAGE SENDED.THANKS FOR RESPONSE');
    
    
    // return 'ok';

@@ -27,7 +27,7 @@
           <th scope="row"><?php echo $a++ ?></th>
             <td>{{$pos->title}}</td>
             <td>{{$pos->created_at}}</td>
-            <td> <a href="http://localhost/AdminPanel/public/scholarship/{{$pos->id}}">
+            <td> <a href="{{url('/scholarship/{{$pos->id}}')}}">
               <button class="btn btn-primary">
                 VIEW
               </button>
@@ -50,7 +50,7 @@
 
 
             <td>
-                <a href="http://localhost/AdminPanel/public/projects/{{$pos->id}}">
+                <a href="{{url('/projects/{{$pos->id}}')}}">
                   <button class="btn btn-warning">
                    UPDATE
                   </button>

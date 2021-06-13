@@ -28,6 +28,8 @@
       </select>
     </div>
 
+    {{Form::label('title','TITLE')}}
+{{Form::text('title',$post->date,['class'=>'form-control'])}}
 
 <hr>
 <div class="form-group">

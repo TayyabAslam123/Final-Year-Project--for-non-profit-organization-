@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/adminpanel') }}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -41,7 +41,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{ url('/') }}">
+        <a class="nav-link" href="{{ url('/adminpanel') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -83,8 +83,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Ngo:</h6>
-           <a class="collapse-item" href="http://localhost:8080/AdminPanel/public/show_ngo">VIEW ALL</a>
-           <a class="collapse-item" href="http://localhost:8080/AdminPanel/public/ngo_verification">VERIFY NGO</a>
+           <a class="collapse-item"  href="{{ url('/show_ngo') }}">VIEW ALL</a>
+           <a class="collapse-item" href="{{ url('/ngo_verification') }}">VERIFY NGO</a>
           
           </div>
         </div>
@@ -101,11 +101,11 @@
   <div id="collapsemc" class="collapse" aria-labelledby="headingmc" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Medical Camps:</h6>
-      <a class="collapse-item" href="http://localhost/AdminPanel/public/medicalcamp/create">ADD A MEDICAL CAMP</a>
+      {{-- <a class="collapse-item"  href="{{url('/medicalcamp/create')}}">ADD A MEDICAL CAMP</a>
       
- 
-      <a class="collapse-item" href="http://localhost/AdminPanel/public/show_medicalcamp">VIEW ALL</a>
-      <a class="collapse-item" href="http://localhost/AdminPanel/public/medicalcamp_verification">VERIFY MEDICALCAMP</a>
+  --}}
+      <a class="collapse-item" href="{{ url('/show_medicalcamp') }}" >VIEW ALL</a>
+      <a class="collapse-item" href="{{ url('/medicalcamp_verification') }}" >VERIFY MEDICALCAMPS</a>
     
     </div>
   </div>
@@ -114,7 +114,7 @@
 
       
       <!-- Divider  <hr class="sidebar-divider"> -->
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsengo" aria-expanded="true" aria-controls="collapsengo">
           
           <span>PROJECTS</span>
@@ -127,7 +127,7 @@
             <a class="collapse-item" href="utilities-border.html">VIEW ALL</a>
           </div>
         </div>
-      </li>
+      </li> --}}
 
       
 
@@ -143,10 +143,10 @@
         <div id="collapsegw" class="collapse" aria-labelledby="headinggw" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Goodwork:</h6>
-            <a class="collapse-item" href="http://localhost/AdminPanel/public/goodwork/create">ADD A GOODWORK</a>
+            <a class="collapse-item" href="{{ url('/goodwork/create') }}" >ADD A GOODWORK</a>
             
          
-            <a class="collapse-item" href="uhttp://localhost/AdminPanel/public/goodwork">VIEW ALL</a>
+            <a class="collapse-item" href="{{ url('/goodwork') }}">LISTED GOODWORK</a>
           </div>
         </div>
       </li>
@@ -156,14 +156,13 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
          
-          <span>USERS</span>
+          <span>Doners</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">USERS:</h6>
-            <a class="collapse-item" href="http://localhost/AdminPanel/public/scholarship/create">ADD A SCHOLARSHIP</a>
-            <a class="collapse-item" href="http://localhost/AdminPanel/public/scholarship">VIEW ALL</a>
-          
+            <h6 class="collapse-header">DONERS:</h6>
+            <a class="collapse-item" href="{{url('alluser')}}">ALL DONERS<a>
+    
           </div>
         </div>
       </li>
@@ -172,7 +171,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:8080/AdminPanel/public/msg">
+        <a class="nav-link" href="{{ url('/msg') }}">
           <i class="fas fa-fw fa-envelope"></i>
           <span>MESSAGES</span></a>
       </li>
@@ -267,8 +266,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">FUNDS RAISED</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">RS 2500</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">TOTAL FUNDS RAISED</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{DB::table("donations")->get()->sum("amount")}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -284,8 +283,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">CAMPAIGNS RUNNING</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">11</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">TOTAL CAMPAIGNS RUNNING</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{App\Campaign::count()}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -301,10 +300,10 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">NGOS REGISTERED</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">TOTAL NGOS REGISTERED</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">10</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{App\Ngo::count()}}</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
@@ -327,8 +326,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">SUBSCRIBERS</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">TOTAL MESSAGES</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{DB::table("msgs")->get()->count()}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>

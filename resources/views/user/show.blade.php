@@ -1,3 +1,9 @@
+@extends('layout.master')
+
+@section('content')
+    
+
+
 <!DOCTYPE html>
 <head>
 <!--bootstrap-->
@@ -39,21 +45,21 @@
         <table class="table table-striped" id="example">
           <thead>
             <tr >
-                <th></th>
-              <th>Product</th>
-              <th>Amount</th>
-              <th>Quantity</th>
-              <th>Status</th>
+           
+              <th>NAME</th>
+              <th>PHONE #</th>
+              <th>CNIC</th>
+              <th>ADDRESS</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($data as $item)
                 
               <tr>
-                  <td><input type="checkbox" name="name1"></td>
               <td>{{$item['name']}}</td>
-                <td>{{$item['email']}}</td>
-              
+                <td>{{$item['ph']}}</td>
+                <td>{{$item['cnic']}}</td>
+                <td>{{$item['address']}}</td>
               </tr>
                       @endforeach
 
@@ -71,3 +77,6 @@
 
     </body>
 </html>
+
+
+@endsection

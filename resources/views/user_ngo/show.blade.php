@@ -1,4 +1,4 @@
-@extends('layout.umm')
+@extends('layout.um')
 
 @section('content')
 
@@ -12,25 +12,7 @@
 <h2>{{$post->created_at}}</h2>
 <hr>     
 <hr>     
-@if (!Auth::guest())
-<a href="http://localhost/AdminPanel/public/ngo/{{$post->id}}/edit">
-    <button class="btn btn-primary btn-lg btn-block">
-    EDIT
-    </button>
-    </a>                
 
-    <br>
-    <br>
-
-    {!!Form::open(['action'=>['NgoController@destroy',$post->id],'method'=>'post'])!!}
-
-    {{Form::hidden('_method','DELETE')}}
-    
-    <button class="btn btn-danger btn-lg btn-block">
-           DELETE
-            </button>
-    {!!Form::close()!!}
-    @endif
 </div>
 <br>
   <!-- Load Facebook SDK for JavaScript -->

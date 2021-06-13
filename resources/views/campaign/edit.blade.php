@@ -31,8 +31,13 @@
         <label for="exampleInputEmail1">APPROVE THE CAMPAIGN</label>
     <select class="custom-select my-1 mr-sm-2" name="status">
         <option selected>Choose...</option>
-        <option value="not approve">NOT APPROVED</option>
+        @if($post->status=="not approve")
+        <option value="not approve" selected>NOT APPROVED</option>
         <option value="approve">APPROVED</option>
+        @else
+        <option value="not approve">NOT APPROVED</option>
+        <option value="approve" selected>APPROVED</option>
+        @endif
       
       </select>
     </div>

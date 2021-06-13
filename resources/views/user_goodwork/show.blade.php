@@ -1,4 +1,4 @@
-@extends('layout.umm')
+@extends('layout.um')
 
 @section('content')
 
@@ -35,7 +35,7 @@
                 <meta property="og:type"          content="website" />
                 <meta property="og:title"         content="Your Website Title" />
                 <meta property="og:description"   content="Your description" />
-                <meta property="og:image"         content="http://localhost/AdminPanel/public/storage/cover_images/areeba_1552662261.jpeg" />
+                <meta property="og:image"         content="#" />
               </head>
         
         <div id="fb-root"></div>

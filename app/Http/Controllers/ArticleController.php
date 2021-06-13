@@ -4,7 +4,9 @@ use Illuminate\Http\Request;
 ///////////////////////
 use App\Http\Requests;
 use App\Campaign;
-use App\Http\Resources\Article as ArticleResource;
+use App\goodwork;
+use App\Ngo;
+//use App\Http\Resources\Article as ArticleResource;
 /////////////////////////
 
 class ArticleController extends Controller
@@ -13,7 +15,24 @@ class ArticleController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
+
+    
      */
+   
+    public function in()
+    {
+        //$articles=Article::paginate(2);
+        // \Log::debug($articles);  
+        //return response("Hello", 200);
+        
+        //$a=Campaign::all();
+        $a=goodwork::all();
+        
+        return response($a,200)->header('access-control-allow-origin','*');
+
+    }
+
     public function index()
     {
         //$articles=Article::paginate(2);
@@ -21,8 +40,14 @@ class ArticleController extends Controller
         //return response("Hello", 200);
         
         $a=Campaign::all();
+       
+        
         return response($a,200)->header('access-control-allow-origin','*');
 
+    }
+    public function ngg(){
+        $a=Ngo::all();
+        return response($a,200)->header('access-control-allow-origin','*');
     }
 
     /**

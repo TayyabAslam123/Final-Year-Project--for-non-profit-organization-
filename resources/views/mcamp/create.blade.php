@@ -32,7 +32,7 @@
     </div>
     
     <div class="form-group">
-      <label for="exampleInputEmail1">VENUE</label>
+      <label for="exampleInputEmail1">ADDRESS</label>
       <?php
      // <input type="text-area" class="form-control" name="body" aria-describedby="emailHelp" placeholder="Enter Details">
       ?>

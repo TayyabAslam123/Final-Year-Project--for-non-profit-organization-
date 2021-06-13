@@ -32,7 +32,8 @@
             <td>{{$pos->title}}</td>
             <td>{{$pos->amount_req}}</td>
             <td>
-            <a href="http://localhost/AdminPanel/public/campaign/{{$pos->id}}/edit">
+            <a    href='{{url("campaign/$pos->id/edit")}}'>
+           
               <button class="btn btn-primary">
                   VIEW & APPROVE
               </button>

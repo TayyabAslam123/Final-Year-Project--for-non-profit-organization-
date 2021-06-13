@@ -28,26 +28,26 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/org';
 
-/*
-    Public function redirection()
-    {
-        if(auth()->user()->role=='ngo')
-        {
-            return redirect('/org');
-        } 
+
+   Public function registered()
+  {
+      if(auth()->user()->role=='ngo')
+      {
+          return redirect('/org');
+      } 
+  
+      if(auth()->user()->role=='backer')
+      {
+          return redirect('/myprofile');
+      } 
+      
+ 
+  }
+
+
     
-        if(auth()->user()->role=='admin')
-        {
-            return redirect('/');
-        } 
-        
-        return redirect('/site');
-    }
-
-
-    */
     /**
      * Create a new controller instance.
      *

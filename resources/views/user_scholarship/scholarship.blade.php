@@ -20,7 +20,7 @@
                <h2 style="color:chocolate;"> {{$pos->title}}</h3>
                <h4> {{$pos->abstract}}</h3>
                <br>
-               <a href="http://localhost/AdminPanel/public/scholarship/{{$pos->id}}">
+               <a href="{{url('/scholarship/{{$pos->id}}')}}">
                <button class="btn btn-primary btn-sm">
                     READ MORE
                   </button>

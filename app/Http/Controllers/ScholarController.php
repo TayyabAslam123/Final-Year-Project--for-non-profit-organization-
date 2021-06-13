@@ -89,7 +89,7 @@ class ScholarController extends Controller
         $post->abstract =$request->input('abstract');
         $post->details =$request->input('details');
         $post->save();
-        return redirect('http://localhost/AdminPanel/public/ngo')->with('success','Ngo updated');
+        return redirect('/ngo')->with('success','Ngo updated');
    
     }
 
@@ -103,7 +103,7 @@ class ScholarController extends Controller
     {
        $post=scholarship::find($id);
        $post->delete();
-       return redirect('http://localhost/AdminPanel/public/scholarship')->with('success','DELETED');;
+       return redirect('/scholarship')->with('success','DELETED');;
      
 
     }

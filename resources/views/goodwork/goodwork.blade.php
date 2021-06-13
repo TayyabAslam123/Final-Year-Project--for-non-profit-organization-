@@ -26,7 +26,7 @@
           <th scope="row"><?php echo $a++ ?></th>
             <td>{{$pos->title}}</td>
             <td>{{$pos->supporters}}</td>
-            <td> <a href="http://localhost/AdminPanel/public/goodwork/{{$pos->id}}">
+            <td> <a href="{{url('/goodwork/{{$pos->id}}')}}">
               <button class="btn btn-primary">
                 VIEW
               </button>

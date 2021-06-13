@@ -32,7 +32,10 @@
               <td>{{$pos->title}}</td>
               <td>{{$pos->city}}</td>
               <td>
-              <a href="http://localhost/AdminPanel/public/medicalcamp/{{$pos->id}}/edit">
+              <a href='{{url("medicalcamp/$pos->id/edit")}}'>
+
+                
+
                 <button class="btn btn-primary">
                     VIEW & APPROVE
                 </button>

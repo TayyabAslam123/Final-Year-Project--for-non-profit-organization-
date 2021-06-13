@@ -20,7 +20,7 @@
               <h2>ADDRESS:{{$pos->address}}</h2>
             
               
-              <a href="http://localhost/AdminPanel/public/campaign/{{$pos->id}}/edit">
+              <a href="{{url('/campaign/'.$pos->id.'/edit')}}">
                   <button class="btn btn-primary ">
                   EDIT Profile
                   </button>

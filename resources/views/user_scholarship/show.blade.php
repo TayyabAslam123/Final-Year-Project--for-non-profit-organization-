@@ -1,4 +1,4 @@
-@extends('layout.umm')
+@extends('layout.um')
 
 @section('content')
 

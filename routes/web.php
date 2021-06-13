@@ -10,14 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/masters', function () {
+ Route::group(['middleware' => 'auth'], function () {
+Route::get('/adminpanel', function () {
    return view('layout.master');
 });
+ });
 
-//Route::get('/', function () {
-  // return view('layouts.home');
-//});
 
 
 /////user site////
@@ -25,6 +23,9 @@ Route::get('/site', function () {
    return view('layout.website');
 });
 
+Route::get('/about-goodwill', function () {
+   return view('about');
+});
 ////////////////////////////////////////////////////
 ///////CONTROLLER _MODEL LINKS//////////////////////
 Route::resource('campaign','CampaignController');
@@ -48,45 +49,15 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 
-//Route::get('/user', 'HomeController@user')->name('user');
-///////______________________________________________________
- /*if (Auth::user()->role=='admin'){
-   Route::get('/', 'HomeController@index')->name('home');
-      }
- 
- else{
 
-   Route::get('/', 'HomeController@user')->name('home');
- }
-
- */
-
-//////////////////////////////////////////////////////////
-///////////////   TESTINGS   ///////////////////////////
 
 
 Route::get('/mimi', function () {
    return view('user_campaign.camapaign');
 });
-////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////  
-
-//Route::get('/c', function () {
-  // $pos= DB::select('select * from campaigns where status="not approve" ');
-   //return view('campaign.verification', ['pos' => $pos]);
-//});
 
 
 
-
-
-///test 
-//Route::get('h', 'CampaignController@donate');
-
-//Route::get('/u','donate@donation');
-//////////////////////////////////////////////////////////////////////
-////////////// ADDITIONAl FUNTIONS/////////////////////////////////////
-//>
 Route::get('campaign_verification', 'CampaignController@verify');
 Route::get('show_campaign', 'CampaignController@showing');
 Route::get('show', 'CampaignController@shows');
@@ -104,12 +75,23 @@ Route::get('don', 'FunctionController@show');
 //_____________________________________________________________________________________//
 ///>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
 ////NAGO PANEL <start>
 ///ngo main page
 Route::get('/org', function () {
    return view('Ngo_org.main');
 });
+
+
+Route::get('/campaignss', function () {
+   return view('Ngo_org.campaign');
+});
+
+Route::get('/cc', function () {
+   return view('Ngo_org.create_campaign');
+
+});
+
 
 
 /////
@@ -140,8 +122,16 @@ Route::get('/allprojects', 'ProjectsController@projects');
 
 
 
-});
+// });
 
 //////NGO PANEL <END>
 
 Route::get('/alluser', 'UserController@in');
+
+Route::get('/p', 'MasterController@cal');
+
+
+
+Route::get('/admin-dash', function () {
+   return view('layouts.home');
+});

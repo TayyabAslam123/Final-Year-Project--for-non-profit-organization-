@@ -20,8 +20,8 @@
           
             <th scope="col">EMAIL</th>
         
-            <th scope="col">SUBJECT</th>
-            <th scope="col"></th>
+            <th scope="col">BODY</th>
+
          
           </tr>
         </thead>
@@ -66,7 +66,7 @@
       
       </p>
 @else
-<p>NO DATA</p>
+<p>YOU HAVE NO MESSAGE</p>
 @endif
 
 

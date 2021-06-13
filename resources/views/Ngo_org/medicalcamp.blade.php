@@ -36,7 +36,7 @@
             {{$pos->status}}</td>
 
 
-            <td> <a href="http://localhost/AdminPanel/public/projects/{{$pos->id}}">
+          <td> <a href="{{url('/medicalcamp/'.$pos->id)}}">
               <button class="btn btn-primary">
                 VIEW
               </button>
@@ -60,7 +60,9 @@
 
 
             <td>
-                <a href="http://localhost/AdminPanel/public/medicalcamp/{{$pos->id}}/edit">
+         
+
+               <a   href='{{url("/medicalcamp/".$pos->id."/edit")}}'>
                   <button class="btn btn-warning">
                    UPDATE
                   </button>

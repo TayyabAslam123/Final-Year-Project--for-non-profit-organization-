@@ -32,7 +32,9 @@
             <td>{{$pos->name}}</td>
             <td>{{$pos->details}}</td>
             <td>
-            <a href="http://localhost/AdminPanel/public/ngo/{{$pos->id}}/edit">
+            <a 
+              href='{{url("ngo/$pos->id/edit")}}''
+              >
               <button class="btn btn-primary">
                   VIEW & APPROVE
               </button>

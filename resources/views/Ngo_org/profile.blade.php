@@ -17,7 +17,7 @@
 <div class="container">
     <br><br>
     @if($pos!==NULL)
-<a href="http://localhost:8080/AdminPanel/public/ngo/{{$pos->id}}">
+<a href="{{url('/ngo/'.$pos->id)}}">
         <button type="button" class="btn btn-primary btn-block">VIEW PROFILE</button>
     </a>
     @endif

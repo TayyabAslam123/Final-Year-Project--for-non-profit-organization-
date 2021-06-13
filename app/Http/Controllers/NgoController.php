@@ -18,16 +18,16 @@ class NgoController extends Controller
 
 
 
-    public function __construct()
-    {
+    // public function __construct()
+    // {
 
-        $this->middleware('auth',['except'=>['index','show']]);
+    //     $this->middleware('auth',['except'=>['index','show']]);
 
 
-        //$this->middleware('auth');
+    //     //$this->middleware('auth');
     
     
-    }
+    // }
 
 
 
@@ -160,7 +160,11 @@ class NgoController extends Controller
      }
    
 
-      
+      else{
+        $post=ngo::find($id);
+        return view('user_ngo.show')->with('post',$post);
+
+      }
     }
 
     /**

@@ -12,7 +12,7 @@
 <h2>{{$post->created_at}}</h2>
 <hr>     
 <hr>     
-<a href="http://localhost/AdminPanel/public/ngo/{{$post->id}}/edit">
+<a href="{{url('/ngo/'.$post->id.'/edit')}}">
     <button class="btn btn-primary btn-lg btn-block">
     EDIT
     </button>

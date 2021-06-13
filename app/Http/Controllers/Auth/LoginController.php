@@ -39,7 +39,7 @@ class LoginController extends Controller
   
       if(auth()->user()->role=='admin')
       {
-          return redirect('/');
+          return redirect('/adminpanel');
       } 
       
       return redirect('/site');
@@ -65,5 +65,9 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function loggedOut() {
+        return redirect('/site');
     }
 }

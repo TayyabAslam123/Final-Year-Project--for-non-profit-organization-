@@ -19,14 +19,14 @@ class GoodworkController extends Controller
    
 
  
- if (auth()->user()->role=='admin'){
-    $pos= DB::select('select * from goodworks');
-    return view('goodwork.goodwork')->with('pos',$pos); 
-    }
+ //if (auth()->user()->role=='admin'){
+   // $pos= DB::select('select * from goodworks');
+   // return view('goodwork.goodwork')->with('pos',$pos); 
+   // }
 
-else{ $pos= DB::select('select * from goodworks');
+ $pos=goodwork::all();
     return view('user_goodwork.goodwork')->with('pos',$pos);   
-}
+
     }
 
     /**
@@ -74,7 +74,7 @@ else{ $pos= DB::select('select * from goodworks');
 
 
     //////redirect to posts
-   return redirect('http://localhost/AdminPanel/public/goodwork')->with('success','CONGRATULATION YOU ADDED A NEW CAMPAIGN');;
+   return redirect('/goodwork')->with('success','CONGRATULATION YOU ADDED A NEW CAMPAIGN');;
     }
 
     /**
@@ -125,7 +125,7 @@ else{ $pos= DB::select('select * from goodworks');
     {
         $post=goodwork::find($id);
         $post->delete();
-        return redirect('http://localhost/AdminPanel/public/goodwork')->with('success','DELETED');;
+        return redirect('/goodwork')->with('success','DELETED');;
     
    
     }

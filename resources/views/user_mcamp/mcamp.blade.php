@@ -23,20 +23,17 @@
         <div class="container">
           <div class="row">
                 @foreach($pos as $pos)
-              <div class="col-md-6 d-flex ftco-animate">
+              <div class="col-lg-6 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
                 <a href="blog-single.html" class="block-20" style="background-image: url('storage/cover_images/{{$pos->cover_image}}');">
                 </a>
                 <div class="text p-4 d-block">
                     <div class="meta mb-3">
-                    <div><a href="#">Sep. 10, 2018</a></div>
-                    <div><a href="#">Admin</a></div>
-                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                  </div>
+                </div>
                 <h3 class="heading mb-4">{{$pos->title}}<a href="#"></a></h3>
-                <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> 10:30AM-03:30PM</span> <br><span><i class="icon-map-o"></i> CITY: {{$pos->city}}</span></p>
-                  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                  <p><a href="http://localhost/AdminPanel/public/medicalcamp/{{$pos->id}}">SEE EVENT <i class="ion-ios-arrow-forward"></i></a></p>
+                <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> 08:30AM-01:30PM</span> <br><span><i class="icon-map-o"></i> CITY: {{$pos->city}}</span></p>
+                  <p>{{$pos->description}}</p>
+                  <p><a href='{{url("medicalcamp/$pos->id")}}'>SEE EVENT <i class="ion-ios-arrow-forward"></i></a></p>
                 </div>
                 
               </div>

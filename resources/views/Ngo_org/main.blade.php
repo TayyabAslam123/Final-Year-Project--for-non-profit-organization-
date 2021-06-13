@@ -72,7 +72,7 @@ background-color: #343a40;;
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-dark" id="ftco-navbar" style="background-color:black" >
     <div class="container" >
-      <a class="navbar-brand" style="color:chocolate;" href="user/index.html">NGO PANEL</a>
+      <a class="navbar-brand" style="color:chocolate;margin-left:150px;" href="user/index.html">NGO PANEL</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -127,13 +127,15 @@ background-color: #343a40;;
     <div class="sidenav">
       <br>
       <br>
+   <hr>
         <a href="{{ url('/profiles') }}">PROFILE</a>
+        <hr>
+        <a href="{{ url('/campaignss') }}">CAMPAIGNS</a>
         <hr>
         <a href="{{ url('/mcamp') }}">MEDICAL CAMPS</a>
         <hr>
-        <a href="{{ url('/proj') }}">PROJECTS</a>
-        <hr>
-     
+      
+   
       </div>
       
       <div class="main">

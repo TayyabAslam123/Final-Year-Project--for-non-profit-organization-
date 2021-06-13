@@ -31,7 +31,7 @@
             
             <td>
 
-                <a href="http://localhost/AdminPanel/public/ngo/{{$pos->id}}">
+                <a href='{{url("ngo/$pos->id")}}''>
                   <button class="btn btn-primary">
                     VIEW
                   </button>

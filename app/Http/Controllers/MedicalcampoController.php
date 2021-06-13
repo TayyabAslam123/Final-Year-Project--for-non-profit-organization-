@@ -15,16 +15,16 @@ class MedicalcampoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
-    {
+    // public function __construct()
+    // {
 
-        $this->middleware('auth',['except'=>['index','show']]);
+    //     $this->middleware('auth',['except'=>['index','show']]);
 
 
-        //$this->middleware('auth');
+    //     //$this->middleware('auth');
     
     
-    }
+    // }
 
     public function camps()
     {
@@ -60,8 +60,8 @@ class MedicalcampoController extends Controller
 
     public function index()
     {
-        //$pos=medicalcamp::all();
-    //    return view('user_mcamp.mcamp')->with('pos',$pos); 
+        $pos=medicalcamp::where('status','approve')->get();
+       return view('user_mcamp.mcamp')->with('pos',$pos); 
 
   
 
@@ -125,7 +125,7 @@ class MedicalcampoController extends Controller
 
 
     //////redirect to posts
-   return redirect('http://localhost/AdminPanel/public/medicalcamp')->with('success','CONGRATULATION YOU ADDED A NEW MEDICAL CAMP');;
+   return redirect('/mcamp')->with('success','CONGRATULATION YOU ADDED A NEW MEDICAL CAMP');;
     }
 
     /**
@@ -136,8 +136,21 @@ class MedicalcampoController extends Controller
      */
     public function show($id)
     {
-        $post=medicalcamp::find($id);
-     return view('user_mcamp.show')->with('post',$post);
+        
+        if(auth()->user()->role=="ngo"){
+            $post=medicalcamp::find($id);
+            return view('newngo.showm')->with('post',$post);
+
+        }
+       
+
+
+        else{
+            
+            $post=medicalcamp::find($id);
+            return view('user_mcamp.show')->with('post',$post);
+        }
+    //return $post;
  
     }
 
@@ -149,9 +162,20 @@ class MedicalcampoController extends Controller
      */
     public function edit($id)
     {
-    
+
         $post=medicalcamp::find($id);
+
+    if(auth()->user()->role=="admin"){
         return view('mcamp.edit')->with('post',$post); 
+    }
+        
+     
+    if(auth()->user()->role=="ngo"){
+        return view('newngo.editm')->with('post',$post); 
+    }
+        
+    
+     
     }
 
     /**
@@ -173,7 +197,7 @@ class MedicalcampoController extends Controller
         $post->save();
      
 
-        return redirect('/show_medicalcamp')->with('success','UPDATED');;
+        return redirect('/show_medicalcamp')->with('success','MEDICAL CAMP APPROVED');;
     }
 
     /**
@@ -186,7 +210,21 @@ class MedicalcampoController extends Controller
     {
         $post=medicalcamp::find($id);
         $post->delete();
-        return redirect('http://localhost/AdminPanel/public/medicalcamp')->with('success','DELETED');;
+      //  return redirect('http://localhost/AdminPanel/public/medicalcamp')->with('success','DELETED');;
+      
+      
+     
+
+      if(auth()->user()->role=="admin"){
+        return redirect('/show_medicalcamp')->with('success','YOU HAVE DELETED A MEDICAL CAMP');;   
+    }
+        
+     
+    if(auth()->user()->role=="ngo"){
+        return redirect('/mcamp')->with('success','YOU HAVE DELETED A MEDICAL CAMP');;
+    }
+        
     
+  
     }
 }

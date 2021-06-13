@@ -21,9 +21,9 @@
   <div class="row">
     <div class="col-md-12">
         <h1><u>LOGO</u></h1>
+    
             <img src="{{ url('storage/cover_images/'.$post->cover_image) }}" height="400PX" width="450px">
-              
-
+      
     
     <div class="jumbotron">
         <h1 style="color:black;">NGO NAME :</h1>

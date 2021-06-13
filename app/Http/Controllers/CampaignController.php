@@ -18,16 +18,16 @@ use App\Http\Resource\Campaign as CampaignResource;
 class CampaignController extends Controller
 {
 
-public function __construct()
-    {
+// public function __construct()
+//     {
 
-        $this->middleware('auth',['except'=>['index','show']]);
+//         $this->middleware('auth',['except'=>['index','show']]);
 
 
-        //$this->middleware('auth');
+//         //$this->middleware('auth');
     
     
-    }
+//     }
 
 
 
@@ -63,13 +63,16 @@ public function __construct()
     public function showing()
     {
 
-        if (auth()->user()->role=='admin'){
+        // if (auth()->user()->role=='admin'){
     
      $pos=campaign::all();
             return view('campaign.showing')->with('pos',$pos);  
-        }
+        // }
 
-
+        // if (auth()->user()->role=='ngo'){
+        //     $pos=campaign::all();
+        //     return view('Ngo_org.view_campaign')->with('pos',$pos); 
+        //     }
         
             
         }
@@ -91,15 +94,16 @@ public function __construct()
     public function index()
     {
 
-        //if (auth()->user()->role=='admin'){
-          //  $pos=campaign::all();
-            //return view('campaign.campaign')->with('pos',$pos); 
-            //}
        
-      // else{
+       
+
+          
+           
+
+
         $pos= DB::select('select * from campaigns where status="approve" ');
         return view('user_campaign.camapaign')->with('pos',$pos);  
-       //}
+    
            
     
     }
@@ -120,16 +124,16 @@ public function __construct()
       
 
 
-        if (auth()->user()->role=='admin'){
+        // if (auth()->user()->role=='admin'){
           
             return view('campaign.create');
-            }
+    //         }
        
-       else{
-        return view('user_campaign.create');
-       }
+    //    else{
+    //     return view('user_campaign.create');
+    //    }
 
-       return redirect('http://localhost/AdminPanel/public/campaign')->with('success','UPDATED');;
+    //    return redirect('http://localhost/AdminPanel/public/campaign')->with('success','UPDATED');;
            
     }
 
@@ -166,8 +170,18 @@ public function __construct()
 
 
 
+    if(auth()->user()->role=="admin"){
+        return redirect('/show_campaign')->with('success','CONGRATULATION YOU ADDED A NEW CAMPAIGN');; 
+    }
+    
+  
+    if(auth()->user()->role=="ngo"){
+        return redirect('/campaignss')->with('success','CONGRATULATION YOU ADDED A NEW CAMPAIGN');; 
+    }
+    
+    
     //////redirect to posts
-   return redirect('/show_campaign')->with('success','CONGRATULATION YOU ADDED A NEW CAMPAIGN');;
+   
     }
 
     /**
@@ -185,7 +199,21 @@ public function __construct()
        
        
        if(auth()->user()->role=="backer"){
+        $post=campaign::find($id);
+//return $post;
         return view('user_campaign.show')->with('post',$post); 
+       }
+
+       if(auth()->user()->role=="ngo"){
+        $post=campaign::find($id);
+//return $post;
+        return view('Ngo_org.show_campaign')->with('post',$post); 
+       }
+
+
+       else{
+        $post=campaign::find($id);
+        return view('user_campaign.show')->with('post',$post);
        }
        
        
@@ -234,9 +262,22 @@ public function __construct()
      */
     public function destroy($id)
     {
+
+        
         $post=campaign::find($id);
         $post->delete();
-        return redirect('/show_campaign')->with('success','YOU HAVE DELETED A CAMPAIGN');;
+
+        if(auth()->user()->role=="ngo"){
+            return redirect('/campaignss')->with('success','YOU HAVE DELETED A CAMPAIGN');; 
+        }
+    
+        
+        if(auth()->user()->role=="admin"){
+            return redirect('/show_campaign')->with('success','YOU HAVE DELETED A CAMPAIGN');;
+        }
+     
+
+
      
     }
 

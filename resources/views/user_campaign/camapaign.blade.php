@@ -28,24 +28,34 @@
 
               ?>
               
-      		<div class="col-md-4 ftco-animate">
+      		<div class="col-md-4 ftco-animate" >
               
       			<div class="cause-entry">
     					<a href="#" class="img" style="background-image: url('storage/cover_images/{{$pos->cover_image}}');"></a>
     					<div class="text p-3 p-md-4">
             
-    						<h3><a href="http://localhost/AdminPanel/public/campaign/{{$pos->id}}">{{$pos->title}}</a></h3>
-    						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-    						<span class="donation-time mb-3 d-block">Last donation 1w ago</span>
+    						<h3>{{$pos->title}}</h3>
+              <p>{{$pos->body}}</p>
+                
                 <div class="progress custom-progress-success" style="background-color:gray;">
                   <div class="progress-bar bg-primary" role="progressbar" style="width: <?php echo $calu ?>%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <span class="fund-raised d-block">RS {{$pos->amount_raised}} raised of {{$pos->amount_req}}</span>
             
-               <a href="http://localhost:8080/AdminPanel/public/donations/{{$pos->id}}"">
-                <button>
+                @if(\Auth::check() and auth()->user()->role=="backer")
+               <a href='{{url("donations/$pos->id")}}'>
+                <button type="button" class="btn btn-outline-secondary btn-block">
                   DONATE NOW </button>
                </a>
+              
+              @endif
+<br>
+<br>
+
+               {{-- <a href='{{url("campaign/$pos->id")}}'>
+               <button type="button" class="btn btn-primary btn-block">VIEW</button>
+               </a> --}}
+
               </div>
             </div>
             

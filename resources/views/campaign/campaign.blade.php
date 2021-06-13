@@ -34,7 +34,7 @@
             <td>{{$pos->amount_raised}}</td>
             <td>{{$pos->created_at}}</td>
             <td>
-            <a href="http://localhost:8080/AdminPanel/public/campaign/{{$pos->id}}" >
+            <a href="{{url('/campaign/{{$pos->id}}')}}" >
               
               <button class="btn btn-primary">
                 VIEW
